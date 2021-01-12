@@ -14,7 +14,7 @@ public class Calculator {
                 break;
             }
             Expression exp = new Expression(input);
-            if (exp.getFirstNumber() < 1 || exp.getFirstNumber() > 10 && exp.getSecondNumber() < 1 || exp.getSecondNumber() > 10) {
+            if (!isInRange(exp.getFirstNumber()) || !isInRange(exp.getSecondNumber())) {
                 throw new InvalidInputException("Only numbers from 1 to 10");
             }
             try {
@@ -36,5 +36,9 @@ public class Calculator {
             case "/" -> exp.getFirstNumber() / exp.getSecondNumber();
             default -> throw new IllegalArgumentException();
         };
+    }
+
+    private boolean isInRange(int number) {
+        return number > 0 && number <= 10;
     }
 }

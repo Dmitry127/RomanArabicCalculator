@@ -98,6 +98,7 @@ public class RomanArabicConverter {
     }
 
     public static boolean isValidRoman(String roman) {
+        roman = roman.toUpperCase();
         String romanCharacters = "MCDLXVI";
         String illegalRomanTwiceChars = "CLV";
         int occurrence = 0;
